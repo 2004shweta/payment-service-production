@@ -1,0 +1,43 @@
+spring:
+  # H2 In-Memory Database for Testing
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  # JPA Configuration for Testing
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        format_sql: false
+    open-in-view: false
+
+  # Disable Redis Auto Configuration
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisRepositoriesAutoConfiguration
+      - org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration
+
+  # Cache configuration - use simple in-memory cache
+  cache:
+    type: none
+
+# Disable Actuator for tests
+management:
+  endpoints:
+    enabled-by-default: false
+
+# Logging for tests
+logging:
+  level:
+    root: WARN
+    com.payment.service: INFO
+    org.springframework.amqp: OFF
+    org.springframework.data.redis: OFF
+    org.hibernate: WARN
