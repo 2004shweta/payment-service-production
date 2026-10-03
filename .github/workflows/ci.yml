@@ -13,11 +13,9 @@ on:
 
 jobs:
   build-and-test:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout source code
         uses: actions/checkout@v4
 
@@ -33,3 +31,6 @@ jobs:
 
       - name: Build application
         run: ./mvnw package -DskipTests
+
+      - name: Build Docker image
+        run: docker build -t payment-service:${{ github.sha }} .
