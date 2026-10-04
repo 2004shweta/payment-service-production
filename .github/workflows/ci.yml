@@ -31,6 +31,3 @@ jobs:
 
       - name: Build application
         run: ./mvnw package -DskipTests
-
-      - name: Build Docker image
-        run: docker build -t payment-service:${{ github.sha }} .
