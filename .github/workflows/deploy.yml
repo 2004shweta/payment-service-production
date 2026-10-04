@@ -24,7 +24,7 @@ jobs:
       - name: Deploy application
         run: |
           cd "$GITHUB_WORKSPACE"
-          docker compose -f docker-compose.aws.yml up -d --no-build
+          docker compose -f docker-compose.yml up -d --build
 
       - name: Verify deployment
         run: |
