@@ -1,61 +1,45 @@
 # 💳 Payment Service
 
-<p align="center">
+A production-style backend payment service built with **Java 17, Spring Boot, PostgreSQL, Redis, RabbitMQ, Docker, and AWS**.
 
-![Java](https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=for-the-badge&logo=springboot)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?style=for-the-badge&logo=postgresql)
-![Redis](https://img.shields.io/badge/Redis-7-red?style=for-the-badge&logo=redis)
-![RabbitMQ](https://img.shields.io/badge/RabbitMQ-3-orange?style=for-the-badge&logo=rabbitmq)
-![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker)
-![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?style=for-the-badge&logo=amazonaws)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-CI%2FCD-2088FF?style=for-the-badge&logo=githubactions)
-
-</p>
-
-<p align="center">
-  A production-oriented backend payment service built with <b>Java, Spring Boot, PostgreSQL, Redis, RabbitMQ, Docker, and AWS</b>.
-</p>
-
-<p align="center">
-  Demonstrates backend development, containerization, asynchronous messaging, caching, database persistence, health monitoring, and automated CI/CD deployment.
-</p>
+The project demonstrates backend API development, database persistence, caching, asynchronous messaging, idempotency, containerization, CI/CD, and cloud deployment.
 
 ---
 
 ## 🏗️ Architecture
 
-text
+```text
                          ┌──────────────────┐
-                         │     GitHub       │
+                         │      GitHub      │
+                         │  Source Control  │
                          └────────┬─────────┘
                                   │
                                   ▼
                          ┌──────────────────┐
                          │ GitHub Actions   │
-                         │    CI / CD       │
+                         │   CI / CD        │
                          └────────┬─────────┘
                                   │
                                   ▼
                          ┌──────────────────┐
-                         │    AWS ECR       │
+                         │    Amazon ECR    │
                          │ Docker Registry  │
                          └────────┬─────────┘
                                   │
                                   ▼
                          ┌──────────────────┐
                          │     AWS EC2      │
-                         │ Ubuntu 24.04 LTS │
+                         │    Ubuntu 24.04  │
                          └────────┬─────────┘
                                   │
-                           Docker Compose
+                         Docker Compose
                                   │
               ┌───────────────────┼───────────────────┐
               │                   │                   │
               ▼                   ▼                   ▼
        ┌─────────────┐     ┌─────────────┐     ┌─────────────┐
        │ Spring Boot │     │ PostgreSQL  │     │    Redis    │
-       │ Application │     │  Database   │     │   Cache     │
+       │ Application │     │  Database   │     │    Cache    │
        └──────┬──────┘     └─────────────┘     └─────────────┘
               │
               ▼
@@ -63,71 +47,82 @@ text
        │  RabbitMQ   │
        │  Messaging  │
        └─────────────┘
-
-## 🛠️ Tech Stack
-
-### ☕ Backend
-
-- Java 17
-- Spring Boot
-- Spring Web
-- Spring Data JPA
-- Spring Validation
-- Spring Boot Actuator
-
-### 🗄️ Database & Messaging
-
-- PostgreSQL
-- Redis
-- RabbitMQ
-- Hibernate
-
-### ☁️ DevOps & Cloud
-
-- Docker
-- Docker Compose
-- GitHub Actions
-- AWS EC2
-- Amazon ECR
-- AWS IAM
-- AWS EBS
-- Ubuntu 24.04
-
-### 🧪 Testing & API
-
-- JUnit
-- Spring Boot Test
-- Testcontainers
-- Postman
-- Swagger / OpenAPI
+```
 
 ---
 
 ## ✨ Key Features
 
-- 🔹 RESTful payment APIs
-- 🔹 PostgreSQL persistence using Spring Data JPA
-- 🔹 Redis integration for caching
-- 🔹 RabbitMQ integration for asynchronous messaging
-- 🔹 Idempotency support for payment requests
-- 🔹 Payment audit records
-- 🔹 Input validation
-- 🔹 Production-specific Spring configuration
-- 🔹 Dockerized application
-- 🔹 Multi-stage Docker build
-- 🔹 Non-root Docker container
-- 🔹 Spring Boot Actuator health monitoring
-- 🔹 Docker health checks
-- 🔹 Automated CI pipeline
-- 🔹 Automated AWS deployment
-- 🔹 Amazon ECR container image storage
-- 🔹 Self-hosted GitHub Actions runner on EC2
+- RESTful payment APIs
+- Payment creation, processing, retry, cancellation, and retrieval
+- Idempotency support for payment requests
+- Payment audit records
+- PostgreSQL persistence using Spring Data JPA
+- Redis integration for caching
+- RabbitMQ integration for asynchronous messaging
+- Request validation
+- Spring Boot Actuator health monitoring
+- Dockerized application
+- Multi-stage Docker build
+- Non-root Docker runtime
+- Docker health checks
+- Automated CI pipeline
+- Automated AWS deployment
+- Amazon ECR image storage
+- Self-hosted GitHub Actions runner on EC2
 
 ---
 
-## 📁 Project Structure
+## 🛠️ Technology Stack
 
+### Backend
 
+| Technology | Purpose |
+|---|---|
+| Java 17 | Application development |
+| Spring Boot | Backend framework |
+| Spring Web | REST APIs |
+| Spring Data JPA | Database access |
+| Hibernate | ORM |
+| Spring Validation | Request validation |
+| Spring Boot Actuator | Health monitoring |
+
+### Database & Messaging
+
+| Technology | Purpose |
+|---|---|
+| PostgreSQL | Relational data persistence |
+| Redis | In-memory caching |
+| RabbitMQ | Asynchronous messaging |
+
+### DevOps & Cloud
+
+| Technology | Purpose |
+|---|---|
+| Docker | Containerization |
+| Docker Compose | Multi-container orchestration |
+| GitHub Actions | CI/CD automation |
+| Amazon ECR | Container image registry |
+| AWS EC2 | Application hosting |
+| AWS IAM | AWS permissions |
+| AWS EBS | EC2 storage |
+| Ubuntu 24.04 | Server operating system |
+
+### Testing & API Documentation
+
+| Technology | Purpose |
+|---|---|
+| JUnit | Unit testing |
+| Spring Boot Test | Application testing |
+| Testcontainers | Integration testing with containers |
+| Swagger / OpenAPI | API documentation |
+| Postman | API testing |
+
+---
+
+# 📁 Project Structure
+
+```text
 payment-service/
 │
 ├── .github/
@@ -144,123 +139,149 @@ payment-service/
 │   │
 │   └── test/
 │
+├── .dockerignore
 ├── Dockerfile
 ├── docker-compose.yml
 ├── docker-compose.aws.yml
 ├── pom.xml
 ├── mvnw
 ├── mvnw.cmd
+├── LICENSE
 └── README.md
-
-
-# 🚀 Running Locally
-
-## 📋 Prerequisites
-
-Make sure you have the following installed:
-
-- Java 17
-- Maven
-- Docker Desktop
-- Git
-
----
-
-## 📥 Clone the Repository
-
-
-git clone https://github.com/2004shweta/payment-service-production.git
-cd payment-service-production
-
-
----
-
-## 🐳 Start the Application
-
-Start all services using Docker Compose:
-
-
-docker compose up -d
-
-
-Check running containers:
-
-
-docker compose ps
-
-
----
-
-## ❤️ Health Check
-
-Check whether the application is running:
-
-```bash
-curl http://localhost:8080/api/v1/health
 ```
 
-Expected response:
+---
 
-json
-{
-  "service": "payment-service",
-  "status": "UP"
-}
+# 🚀 API Endpoints
 
+| Method | Endpoint | Description |
+|---|---|---|
+| `POST` | `/api/v1/payments` | Create a payment |
+| `GET` | `/api/v1/payments/{id}` | Retrieve a payment |
+| `POST` | `/api/v1/payments/{id}/process` | Process a payment |
+| `POST` | `/api/v1/payments/{id}/retry` | Retry a payment |
+| `POST` | `/api/v1/payments/{id}/cancel` | Cancel a payment |
+| `GET` | `/api/v1/health` | Application health |
 
 ---
 
-# ☕ Running with Maven
+# 🔑 Idempotency
 
-### Run Tests
+The payment creation flow supports an **idempotency key** to help prevent duplicate payment creation when the same request is retried.
 
-Linux/macOS:
+Example request:
+
+```json
+{
+  "idempotencyKey": "payment-12345",
+  "merchantId": "merchant-001",
+  "customerId": "customer-001",
+  "amount": 100.00,
+  "currency": "USD",
+  "description": "Payment for order",
+  "callbackUrl": ""
+}
+```
+
+The idempotency mechanism is particularly relevant for payment APIs where clients may retry requests because of network failures or timeouts.
+
+---
+
+# 🗄️ PostgreSQL
+
+PostgreSQL is used as the primary relational database.
+
+The application persists payment-related information including:
+
+- Payment records
+- Payment audit records
+- Idempotency information
+
+Persistence is implemented using **Spring Data JPA and Hibernate**.
+
+---
+
+# ⚡ Redis
+
+Redis is integrated as an in-memory caching layer.
+
+It is used to reduce repeated database access for frequently requested payment information.
+
+The application communicates with Redis through the Docker Compose service network when running in the containerized environment.
+
+---
+
+# 📨 RabbitMQ
+
+RabbitMQ provides asynchronous messaging capabilities within the payment service.
+
+Using a message broker allows processing that does not need to block the main request flow to be handled asynchronously.
+
+---
+
+# 🧪 Testing
+
+The project includes testing support using:
+
+- JUnit
+- Spring Boot Test
+- Testcontainers
+
+Run the test suite with:
+
+### Linux / macOS
 
 ```bash
 ./mvnw clean test
 ```
 
-Windows:
+### Windows
 
 ```cmd
 mvnw.cmd clean test
-```
-
-### Build the Application
-
-```bash
-./mvnw package -DskipTests
-```
-
-Windows:
-
-```cmd
-mvnw.cmd package -DskipTests
 ```
 
 ---
 
 # 🐳 Docker
 
-### Build the Application Image
+The application uses a **multi-stage Docker build**.
+
+The build stage compiles the Spring Boot application, while the runtime stage uses a smaller Java runtime image.
+
+The application container runs using a dedicated non-root user:
+
+```dockerfile
+USER spring:spring
+```
+
+This reduces unnecessary privileges inside the container.
+
+### Build the image
 
 ```bash
 docker build -t payment-service:local .
 ```
 
-### Run Using Docker Compose
+### Start the complete local stack
 
 ```bash
 docker compose up -d
 ```
 
-### View Application Logs
+### Check containers
+
+```bash
+docker compose ps
+```
+
+### View application logs
 
 ```bash
 docker compose logs -f payment-service
 ```
 
-### Stop Services
+### Stop services
 
 ```bash
 docker compose down
@@ -270,166 +291,117 @@ docker compose down
 
 # ☁️ AWS Deployment
 
-The application is deployed to **AWS EC2** using Docker Compose.
+The application is deployed to **Amazon EC2** using Docker Compose.
 
-## AWS Components
+### AWS Components
 
-| Service | Purpose |
+| AWS Service | Purpose |
 |---|---|
-| 🖥️ EC2 | Application hosting |
-| 📦 ECR | Docker image storage |
-| 🔐 IAM | AWS permissions |
-| 🛡️ Security Groups | Network access control |
-| 💾 EBS | EC2 storage |
-| 🐳 Docker Compose | Container orchestration |
+| EC2 | Application hosting |
+| ECR | Docker image storage |
+| IAM | AWS permissions |
+| EBS | EC2 storage |
+| Security Groups | Network access control |
 
-The EC2 instance runs **Ubuntu 24.04 LTS** and hosts the application containers.
+The EC2 instance runs Ubuntu 24.04 LTS and hosts the application and supporting services through Docker Compose.
 
 ---
 
 # 🔄 CI/CD Pipeline
 
-Every push to the `main` branch triggers the GitHub Actions pipeline.
+Every push to the `main` branch triggers the CI/CD workflow.
 
-## 🧪 Continuous Integration
+## Continuous Integration
 
-The CI pipeline performs:
+The CI workflow:
 
-1. 📥 Checkout source code
-2. ☕ Configure Java 17
-3. 🧪 Run Maven tests
-4. 📦 Build the application
-
-
+```text
 Git Push
-   │
-   ▼
+    │
+    ▼
 Checkout Source
-   │
-   ▼
-Java 17
-   │
-   ▼
-Maven Tests
-   │
-   ▼
-Maven Build
+    │
+    ▼
+Configure Java 17
+    │
+    ▼
+Run Maven Tests
+    │
+    ▼
+Build Application
+```
 
+## Continuous Deployment
 
----
+The deployment workflow:
 
-## 🚀 Continuous Deployment
-
-The deployment pipeline performs:
-
-1. 🖥️ Runs on the EC2 self-hosted GitHub Actions runner
-2. 🔐 Authenticates with Amazon ECR
-3. 📥 Pulls the latest Docker image
-4. 🐳 Updates Docker Compose services
-5. ❤️ Performs an application health check
-
-
+```text
 Git Push
-   │
-   ▼
+    │
+    ▼
 GitHub Actions
-   │
-   ▼
+    │
+    ▼
 EC2 Self-hosted Runner
-   │
-   ▼
-Amazon ECR
-   │
-   ▼
-Docker Compose
-   │
-   ▼
-Health Check
+    │
+    ▼
+Authenticate with Amazon ECR
+    │
+    ▼
+Pull Latest Docker Image
+    │
+    ▼
+Docker Compose Deployment
+    │
+    ▼
+Application Health Check
+```
 
+The deployment runner is configured as a system service on the EC2 instance, allowing the runner to remain available without keeping an SSH session open.
 
 ---
 
 # ❤️ Health Monitoring
 
-Application health endpoint:
+The application exposes a health endpoint:
 
-
+```text
 GET /api/v1/health
+```
 
+Example response:
 
-Example:
-
-json
+```json
 {
   "service": "payment-service",
   "status": "UP",
   "timestamp": "2026-10-05T14:28:05.994032844"
 }
-
+```
 
 Spring Boot Actuator is also configured for application monitoring.
 
 ---
 
-# 📚 API Documentation
+# 📚 Swagger / OpenAPI
 
-Swagger / OpenAPI documentation is available at:
+Swagger UI is available locally at:
 
-
+```text
 http://localhost:8080/swagger-ui/index.html
-
-
-For the deployed EC2 instance:
-
-
-http://<EC2-PUBLIC-IP>:8080/swagger-ui/index.html
-
-
----
-
-# 🗄️ Database
-
-PostgreSQL is used as the primary relational database.
-
-The application maintains payment-related data including:
-
-- 💳 Payments
-- 📝 Payment audit records
-- 🔑 Idempotency keys
-
-Persistence is handled using **Spring Data JPA and Hibernate**.
-
----
-
-# ⚡ Redis
-
-Redis is used for:
-
-- Fast in-memory data access
-- Caching
-- Reducing repeated database access
-
----
-
-# 📨 RabbitMQ
-
-RabbitMQ provides asynchronous messaging between application components.
-
-This allows operations that do not need to block the main request flow to be handled asynchronously.
-
----
-
-# 🔐 Docker Security
-
-The application Docker image uses a **multi-stage build** to separate the build environment from the runtime environment.
-
-The runtime container runs as a non-root user:
-
-```dockerfile
-USER spring:spring
 ```
 
-This reduces the privileges available to the application container.
+Live deployment:
+
+```text
+http://3.107.156.100:8080/swagger-ui/index.html
+```
+
+The deployed health endpoint is:
+
+```text
+http://3.107.156.100:8080/api/v1/health
+```
 
 ---
 
@@ -437,85 +409,77 @@ This reduces the privileges available to the application container.
 
 Local and production configurations are maintained separately:
 
-
+```text
 application.yml
 application-prod.yml
+```
 
+Production infrastructure connection details are supplied through environment variables.
 
-Production infrastructure connection details are supplied through environment variables rather than being hardcoded into the application.
+This keeps environment-specific configuration separate from the application code.
 
 ---
 
-# 🔧 Useful Commands
+# 🔐 Security Considerations
 
-### Check Docker Containers
+The Docker runtime uses a non-root user.
 
-```bash
-docker ps
-```
+AWS access is provided through IAM permissions attached to the EC2 instance rather than storing long-lived AWS credentials on the server.
 
-### Check Docker Compose Services
+Production hardening that can be added in future versions includes:
 
-```bash
-docker compose ps
-```
-
-### View Application Logs
-
-```bash
-docker logs -f payment-service-app
-```
-
-### Check Application Health
-
-```bash
-curl http://localhost:8080/api/v1/health
-```
-
-### Check GitHub Actions Runner
-
-```bash
-sudo ./svc.sh status
-```
-
-### Restart GitHub Actions Runner
-
-```bash
-sudo ./svc.sh restart
-```
+- HTTPS with a domain
+- AWS Secrets Manager
+- Authentication and authorization
+- Centralized logging
+- Container vulnerability scanning
+- Database backup strategy
+- Infrastructure as Code
 
 ---
 
-# ✅ CI/CD Result
+# 📸 Screenshots
 
-The project supports:
+### Swagger API Documentation
 
-- ✅ Automated testing
-- ✅ Automated Maven builds
-- ✅ Docker-based deployment
-- ✅ Amazon ECR image management
-- ✅ AWS EC2 deployment
-- ✅ Self-hosted GitHub Actions runner
-- ✅ Automated deployment health verification
-- ✅ Containerized PostgreSQL
-- ✅ Containerized Redis
-- ✅ Containerized RabbitMQ
+Add your Swagger screenshot here:
+
+```text
+docs/images/swagger.png
+```
+
+### AWS Deployment
+
+Add your EC2 / deployment screenshot here:
+
+```text
+docs/images/aws-deployment.png
+```
+
+### CI/CD Pipeline
+
+Add your successful GitHub Actions screenshot here:
+
+```text
+docs/images/github-actions.png
+```
 
 ---
 
 # 🔮 Future Improvements
 
-The following improvements can be added in future versions:
+Planned improvements include:
 
-- 🔒 HTTPS with a domain and load balancer
-- 🔐 AWS Secrets Manager integration
-- 📊 Centralized logging
-- 📈 Prometheus / Grafana monitoring
-- 💾 Automated database backups
-- 🗃️ Automated database migrations
-- 🔄 Blue/green or rolling deployments
-- 🔍 Container vulnerability scanning
-- 🏗️ Infrastructure as Code using Terraform
+- HTTPS with a domain and load balancer
+- Authentication and authorization
+- AWS Secrets Manager integration
+- Centralized logging
+- Prometheus / Grafana monitoring
+- Automated database backups
+- Automated database migrations
+- Blue/green or rolling deployments
+- Container vulnerability scanning
+- Terraform-based Infrastructure as Code
 
 ---
 
@@ -523,31 +487,8 @@ The following improvements can be added in future versions:
 
 **Shweta Jaiswal**
 
-B.Tech Computer Science Engineering  
-
-
-### 🔗 Connect
-
-- 💻 GitHub: [2004shweta](https://github.com/2004shweta)
-- 📦 Project Repository: [payment-service-production](https://github.com/2004shweta/payment-service-production)
+B.Tech — Computer Science Engineering
 
 ---
 
-<p align="center">
-
-⭐ If you found this project interesting, consider giving it a star!
-
-</p>
-
-
-### One important improvement I made
-
-I removed the hardcoded deployed timestamp as something that looks like a permanent project value and kept it only as an **example response**. Your README now looks much more like a serious production/backend project rather than a basic college project.
-
-After replacing the file:
-
-cmd
-git add README.md
-git commit -m "Improve README documentation"
-git push origin main
-
+⭐ If you found this project interesting, consider giving it a star.
